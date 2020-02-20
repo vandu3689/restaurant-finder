@@ -1,0 +1,20 @@
+<div class="trending--wrapper categories--head mb-5" *ngIf="trendingRes && trendingRes.collections">
+  <h2>Collections In Your City Based On Trends</h2>
+  <div class="row">
+          <div *ngFor="let trendResult of trendingRes.collections | keyvalue" class="col-md-6">
+          <div class="card mb-4">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="{{trendResult.value.collection.image_url}}" class="card-img" alt="">
+              </div>
+              <div class="col-md-6 align-center">
+                <div class="card-body">
+                  <h5 class="card-title">{{trendResult.value.collection.title}}</h5>
+                  <p class="card-text">{{trendResult.value.collection.description}}</p>
+                  <button class="btn btn-primary" (click)="collectionRes(trendResult.value.collection.collection_id)">Know More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>

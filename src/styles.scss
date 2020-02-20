@@ -1,1 +1,272 @@
 /* You can add global styles to this file, and also import other style files */
+$themeColor : #de6565;
+$buttonColor: #d44f4f;
+
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	position: relative;
+}
+h1 {
+	margin : 0px 0 30px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #000;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #000;
+}
+::placeholder { /* Most modern browsers support this now. */
+   color:    #000;
+}
+
+.restaurant--wrapper {
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	.form-control {
+		padding-left: 2rem;
+		border-radius: 0rem;
+	}
+	.form-group {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.geoheader {
+	.form-control {
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.btn {border-radius: 0;}
+
+}
+.card-text {
+	//max-width: 70%;
+	font-size: .8rem;
+}
+.trending--wrapper {
+	.card {
+		max-width: 540px;
+	}
+}
+.card-title {
+	font-size: 1.2rem;
+} 
+.align-center {
+	display: flex;
+    align-items: center;
+}
+.categories--head {
+	h2 {
+		text-align: center;
+    	margin-bottom: 30px;
+	}
+	img {
+		//border: 1px solid #ddd;
+	}
+	a:hover  {
+		text-decoration: none;
+	}
+}
+.hero {
+	position: relative;
+	img {
+		max-width: 100%;
+		height: 330px;
+		width: 100%;
+		object-fit: cover;
+		opacity: 0.6;
+	}
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		color: #4c4545;
+    	font-size: 30px;
+	}
+	form {
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+	}
+	select {
+		padding: 9px 10px;
+		//margin-right: 10px;
+		option { padding: 6px;}
+	}
+	.text-danger {
+		margin-top: 10px;
+	}
+}
+agm-map {
+height: 300px;
+}
+select {
+	padding: 10px;
+	option {
+		padding : 16px;
+		line-height:  2em;
+	}
+}
+.card-body {
+	padding: 1rem 1rem 0rem 0;
+	color: #000;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.btn-primary, .btn-secondary {
+	background:  $buttonColor;
+	border-color : $buttonColor;
+	&:hover, &:focus, &:disabled, &.disabled {
+		background: $buttonColor;
+		border-color : $buttonColor;
+	}
+	&:disabled, &.disabled {
+		cursor: no-drop;
+	}
+}
+.btn-secondary {
+	padding: 6px 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	min-width: 150px;	
+}
+.eqheight {min-height: 200px;}
+.rating-wrapper svg, .rating-wrapper i {
+	color : #FFE433;
+	//background : #FFE433;
+}
+.inline {
+	margin-bottom:  10px;
+}
+.cusine-title {
+	font-size: 12px;
+    border-top: 1px solid $themeColor;
+    padding-top: 5px;
+    text-transform: uppercase;
+    color: $themeColor;
+}
+.card-container {
+	transition : all 0.5s ease;
+	max-width: 250px;
+	padding: 20px 0 0 0;
+	margin-bottom: 30px;
+	&:hover {
+		box-shadow: 0 0rem 2rem rgba(0,0,0,.2);
+		transform: scale(1.03);
+
+		//background-color: #37474f;
+	}
+	
+}
+.cuisine-wrapper {
+	margin: 0 10px;
+}
+.restaurant--container {
+	margin: 50px 0 0 0;
+}
+img {
+	max-width: 100%;
+}
+.heading-2 {
+	font-size: 18px;
+}
+.order-buttons {
+	a, button {
+		margin-right: 20px;
+	}
+}
+.reviews-wrapper {
+	margin-top: 30px;
+	.btn {
+		margin: 0 auto 20px;
+    	display: block;
+	}
+}
+
+.review-entries {
+	background: #efefef;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	img {
+		width: 50px;
+	}
+	.name {
+		padding-left: 1em;
+	}
+}
+.footer {width : 100%}
+.review-userinfo {
+	margin-bottom: 20px;
+    border-bottom: 1px solid #d0cdcd;
+    padding-bottom: 20px;
+}
+footer {
+	padding: 10px 12px;
+	background:  #ddd;
+	a {
+		padding-right: 10px;
+		font-size: 20px;
+		color : #000;
+		&:hover {
+			color: #d44f4f
+		}
+	}
+}
+.error-wrapper {
+	min-height: 500px;
+	.btn {
+		min-width: 200px;
+	}
+}
+
+.multi-item-carousel{
+	.carousel-inner{
+	  > .item{
+		transition: 500ms ease-in-out left;
+	  }
+	  .active{
+		&.left{
+		  left:-33%;
+		}
+		&.right{
+		  left:33%;
+		}
+	  }
+	  .next{
+		left: 33%;
+	  }
+	  .prev{
+		left: -33%;
+	  }
+	  @media all and (transform-3d), (-webkit-transform-3d) {
+		> .item{
+		  // use your favourite prefixer here
+		  transition: 500ms ease-in-out left;
+		  transition: 500ms ease-in-out all;
+		  backface-visibility: visible;
+		  transform: none!important;
+		}
+	  }
+	}
+	.carouse-control{
+	  &.left, &.right{
+		background-image: none;
+	  }
+	}
+  }

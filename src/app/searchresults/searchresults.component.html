@@ -1,0 +1,31 @@
+<div *ngIf="searchRes && searchRes.results_found > 0 && searchRes.restaurants" id="target" class="restaurant--container">
+  <h1>Search Results</h1>  
+  <div class="row categories--head"> 
+      <div *ngFor="let restaurantLits of searchRes.restaurants | keyvalue" class="col-xs-2 col-sm-4 col-md-3">
+        <a [routerLink]="['/restaurant-detail', restaurantLits.value.restaurant.id]"> 
+          <div class="card-container border-0 card text-center d-flex align-items-center card"> 
+          <img src="{{restaurantLits.value.restaurant.thumb}}" onerror="this.src='../assets/img/imagenofound.png';">   
+          <div class="card-body">
+            <h4 class="card-title">{{restaurantLits.value.restaurant.name}}</h4>
+            <p class="card-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              {{restaurantLits.value.restaurant.location.locality_verbose}}</p>
+              <p class="rating-wrapper">
+                 <app-starrating [ngClass]="rating" [childMessage] = "restaurantLits.value.restaurant.user_rating.aggregate_rating"></app-starrating>
+              </p>
+          </div>
+          </div>
+        </a> 
+     </div>
+     <div class="text-center container-fluid mb-4" *ngIf="searchRes.results_found > 20">
+        <button type="submit" (click) ="loadMoreProducts()" class="btn btn-secondary">Load More</button>
+     </div>
+    </div>
+</div>
+<div class="container d-flex h-100 error-wrapper" *ngIf="searchRes && searchRes.results_found == 0">  
+  <div class="row justify-content-center align-self-center">
+  <h2>Sorry Cant load the restaurants at the moment. Please try other suggestions.</h2>
+  <a href="javascript:history.back()" class="btn btn-primary"> Go Back </a>
+  </div>   
+</div>
+
+

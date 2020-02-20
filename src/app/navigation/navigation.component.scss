@@ -1,0 +1,17 @@
+.categories--head {
+    h2 {
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+}
+.favFoods {
+    padding: 10px 10px;
+    a {
+        color : #7b7b7b;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

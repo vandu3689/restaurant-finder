@@ -1,0 +1,61 @@
+<div class="row">
+  <app-header [latData]="lat" [longData]="long"></app-header>
+</div>
+<div class="row mt-5 mb-5">
+  <div class="col category-seperation">
+  <div  class="categories--head container-fluid">
+    <div *ngIf="allrestaurant && allrestaurant.nearby_restaurants" >
+      <h2>Best Restaurants Around you</h2>
+      <div class="row">
+      <div *ngFor="let obcategories of allrestaurant.nearby_restaurants | keyvalue" class="col-lg-3">
+          <a [routerLink]="['/restaurant-detail', obcategories.value.restaurant.id]">
+            <div class="card-container border-0 card text-center d-flex align-items-center card"> 
+            <img src="{{obcategories.value.restaurant.thumb}}"  onerror="this.src='../assets/img/imagenofound.png';">   
+            <div class="card-body">
+              <h4 class="card-title">{{obcategories.value.restaurant.name}}</h4>
+              <p class="card-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                {{obcategories.value.restaurant.location.locality_verbose}}</p>
+                 <p class="rating-wrapper"><app-starrating [ngClass]="rating" [childMessage] = "obcategories.value.restaurant.user_rating.aggregate_rating"></app-starrating></p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <app-collections></app-collections>
+
+    <!-- Popular Restaurants Around you -->
+    <div *ngIf="searchRes && searchRes.restaurants" class="mt-5">
+      <h2>Popular Restaurants in your City</h2>
+      <div class="row">
+      <div *ngFor="let restaurantLits of searchRes.restaurants | keyvalue" class="col-lg-3">
+          <a [routerLink]="['/restaurant-detail', restaurantLits.value.restaurant.id]"> 
+            <div class="card-container border-0 card text-center d-flex align-items-center card"> 
+            <img src="{{restaurantLits.value.restaurant.thumb}}">   
+            <div class="card-body">
+              <h4 class="card-title">{{restaurantLits.value.restaurant.name}}</h4>
+              <p class="card-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                {{restaurantLits.value.restaurant.location.locality_verbose}}</p>
+                <p class="rating-wrapper" *ngIf="restaurantLits.value.restaurant.user_rating.aggregate_rating">
+                   <app-starrating [ngClass]="rating" [childMessage] = "restaurantLits.value.restaurant.user_rating.aggregate_rating"></app-starrating>
+                </p>
+            </div>
+            </div>
+          </a> 
+       </div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+<div *ngIf="err">
+  <div class="text-center error-wrapper">  
+    <h2>Sorry Cant load the restaurants at the moment. Please Use search to find your favourite restaurants.</h2>
+  </div>
+</div>
+<div class="text-center">
+  <div class="row">
+  <app-footer class="footer"></app-footer>
+</div>
+</div>

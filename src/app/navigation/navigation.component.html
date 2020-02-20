@@ -1,0 +1,12 @@
+<div class="categories--head">
+  <h2>Cuisines</h2>
+<div *ngFor="let obcategories of cusine | keyvalue">
+    <div  *ngFor="let obcategory of obcategories.value | keyvalue">
+      <div class="favFoods" *ngFor="let nestedobcategory of obcategory.value | keyvalue">
+         <a href="" id="{{nestedobcategory.value.cuisine_id}}"> 
+         <i class="far fa-dot-circle"></i>
+            {{nestedobcategory.value.cuisine_name}} </a>
+      </div>
+    </div>
+  </div>  
+  </div>

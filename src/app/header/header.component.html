@@ -1,0 +1,43 @@
+<div *ngIf="latData && longData; else otherContent" class="hero text-center alt-height geoheader">
+    <img src="./assets/img/search-bg1.jpg">
+    <div class="col-xs-12 col-sm-12  col-md-12 text-center restaurant--wrapper">
+        <h1>Find the best restaurants at the best price</h1>
+        <form [formGroup]="submitForm" (ngSubmit) = "onSubmit(submitForm.value)">
+            <div class="form-group location-form col-sm-3">
+                <input [class.is-invalid]="submitForm.get('searchTerm').invalid && submitForm.get('searchTerm').touched" formControlName="searchTerm" type="text" placeholder="Search for a recepie or restaurant" class="form-control"/>      
+                <div class="text-danger"  *ngIf="submitForm.get('searchTerm').touched && submitForm.get('searchTerm').invalid">
+                    This Field is required.
+                </div>
+            </div>
+            <button class="btn btn-primary btn-form" [disabled]="!submitForm.valid">Find a restaurant</button>
+        </form>
+</div>
+</div>
+<ng-template #otherContent>
+    <div class="hero text-center alt-height">
+            <img src="./assets/img/search-bg1.jpg">
+            <div class="col-xs-12 col-sm-12  col-md-12 text-center restaurant--wrapper">
+            <h1>Find the best restaurants at the best price</h1>
+            <form [formGroup]="registrationForm" (ngSubmit) = "onSubmit(registrationForm.value)">
+                <div class="form-group col-sm-3">
+                    <select class="form-control dropdown" formControlName="cuisine" id="processTemplate">
+                    <option disabled selected value="">What would you like to have?</option>
+                    <option value="{{ processTemplate.value.cuisine.cuisine_id}}"  *ngFor="let processTemplate of users | keyvalue">
+                            {{ processTemplate.value.cuisine.cuisine_name }}
+                    </option>
+                    </select>  
+                    <div class="text-danger"  *ngIf="registrationForm.get('cuisine').touched && registrationForm.get('cuisine').invalid">
+                        This field is required.
+                    </div>
+                </div>
+                <div class="form-group location-form col-sm-2">
+                    <input [class.is-invalid]="registrationForm.get('recepie').invalid && registrationForm.get('recepie').touched" formControlName="recepie" type="text" placeholder="Enter City" class="form-control"/>      
+                    <div class="text-danger"  *ngIf="registrationForm.get('recepie').touched && registrationForm.get('recepie').invalid">
+                        This Field is required.
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-form" [disabled]="!registrationForm.valid">Find a restaurant</button>
+            </form>
+            </div>     
+    </div>
+</ng-template>
