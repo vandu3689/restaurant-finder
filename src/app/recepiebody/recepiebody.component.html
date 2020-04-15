@@ -10,7 +10,7 @@
       <div *ngFor="let obcategories of allrestaurant.nearby_restaurants | keyvalue" class="col-lg-3">
           <a [routerLink]="['/restaurant-detail', obcategories.value.restaurant.id]">
             <div class="card-container border-0 card text-center d-flex align-items-center card"> 
-            <img src="{{obcategories.value.restaurant.thumb}}"  onerror="this.src='../assets/img/imagenofound.png';">   
+            <img src="{{obcategories.value.restaurant.thumb}}"  onerror="this.src='./assets/img/imagenofound.png';">   
             <div class="card-body">
               <h4 class="card-title">{{obcategories.value.restaurant.name}}</h4>
               <p class="card-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
