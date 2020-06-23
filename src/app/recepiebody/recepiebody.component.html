@@ -32,7 +32,7 @@
       <div *ngFor="let restaurantLits of searchRes.restaurants | keyvalue" class="col-lg-3">
           <a [routerLink]="['/restaurant-detail', restaurantLits.value.restaurant.id]"> 
             <div class="card-container border-0 card text-center d-flex align-items-center card"> 
-            <img src="{{restaurantLits.value.restaurant.thumb}}">   
+            <img src="{{restaurantLits.value.restaurant.thumb}}"  onerror="this.src='./assets/img/imagenofound.png';">   
             <div class="card-body">
               <h4 class="card-title">{{restaurantLits.value.restaurant.name}}</h4>
               <p class="card-text"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
